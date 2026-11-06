@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { animate, useInView, useReducedMotion } from 'motion/react';
+import aboutPortrait from '../assets/images/about-portrait.jpg';
 
 const stats = [
   { value: 2, suffix: '+', label: 'Years Experience' },
@@ -36,8 +37,13 @@ const About = () => {
   return (
     <section id="about" className="px-6 max-w-7xl mx-auto py-16 md:py-24 scroll-mt-24">
       <div className="grid md:grid-cols-2 gap-12 items-center">
-        <div className="w-full h-72 md:h-105 rounded-2xl border-2 border-dashed border-dark/20 flex items-center justify-center order-2 md:order-1">
-          <span className="text-dark/40 font-medium">Image</span>
+        <div className="w-full h-72 md:h-105 rounded-2xl overflow-hidden order-2 md:order-1">
+          <img
+            src={aboutPortrait}
+            alt="Portrait for the About Me section"
+            loading="lazy"
+            className="w-full h-full object-cover object-center"
+          />
         </div>
 
         <div className="order-1 md:order-2">

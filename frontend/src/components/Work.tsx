@@ -14,9 +14,14 @@ const Work = () => {
       <div className="grid md:grid-cols-2 gap-8">
         {workData.map((project) => (
           <div key={project.title} className="group cursor-pointer">
-            <div className="w-full h-64 md:h-80 rounded-2xl border-2 border-dashed border-dark/20 flex items-center justify-center mb-5 group-hover:border-lime transition-colors">
-              <span className="text-dark/40 font-medium">Image</span>
-            </div>
+              <div className="w-full h-64 md:h-80 rounded-2xl overflow-hidden mb-5">
+                <img
+                  src={project.image}
+                  alt={`${project.title} preview`}
+                  loading="lazy"
+                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                />
+              </div>
             <div className="flex items-start justify-between gap-4">
               <div>
                 <p className="text-sm text-dark/50 mb-1">{project.category}</p>
