@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Poppins", sans-serif;
+  --color-lime: #D7FF3F;
+  --color-dark: #0E0E0E;
+  --color-cream: #F7F7F2;
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(215, 255, 63, 0.6) #F7F7F2;
+  scrollbar-gutter: stable;
+}
+
+/* Webkit browsers (Chrome, Safari, Edge) */
+html::-webkit-scrollbar {
+  width: 8px;
+}
+
+html::-webkit-scrollbar-track {
+  background: #F7F7F2;
+}
+
+html::-webkit-scrollbar-thumb {
+  background: rgba(215, 255, 63, 0.6);
+  border-radius: 4px;
+  margin: 40px 0;
+}
+
+/* Hide all scrollbar buttons (arrow heads) */
+html::-webkit-scrollbar-button:vertical:start:increment,
+html::-webkit-scrollbar-button {
+  display: none;
+}
