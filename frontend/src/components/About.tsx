@@ -1,8 +1,36 @@
+import { useEffect, useRef, useState } from 'react';
+import { animate, useInView, useReducedMotion } from 'motion/react';
+
 const stats = [
-  { value: '2+', label: 'Years Experience' },
-  { value: '15+', label: 'Projects Completed' },
-  { value: '6', label: 'Months Internship' },
+  { value: 2, suffix: '+', label: 'Years Experience' },
+  { value: 15, suffix: '+', label: 'Projects Completed' },
+  { value: 6, suffix: '', label: 'Months Internship' },
 ];
+
+const StatCounter = ({ value, suffix }: { value: number; suffix: string }) => {
+  const ref = useRef<HTMLParagraphElement>(null);
+  const isInView = useInView(ref, { once: true, amount: 0.6 });
+  const shouldReduceMotion = useReducedMotion();
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    if (!isInView || shouldReduceMotion) return;
+
+    const controls = animate(0, value, {
+      duration: 1.2,
+      ease: 'easeOut',
+      onUpdate: (latest) => setCount(Math.round(latest)),
+    });
+
+    return () => controls.stop();
+  }, [isInView, shouldReduceMotion, value]);
+
+  return (
+    <p ref={ref} className="text-2xl md:text-3xl font-bold text-lime" aria-label={`${value}${suffix}`}>
+      {isInView && shouldReduceMotion ? value : count}{suffix}
+    </p>
+  );
+};
 
 const About = () => {
   return (
@@ -27,7 +55,7 @@ const About = () => {
           <div className="grid grid-cols-3 gap-4">
             {stats.map((stat) => (
               <div key={stat.label} className="bg-dark text-cream rounded-xl p-4 text-center">
-                <p className="text-2xl md:text-3xl font-bold text-lime">{stat.value}</p>
+                <StatCounter value={stat.value} suffix={stat.suffix} />
                 <p className="text-xs md:text-sm text-cream/70 mt-1">{stat.label}</p>
               </div>
             ))}
