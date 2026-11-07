@@ -1,4 +1,5 @@
 import { FiArrowUpRight } from 'react-icons/fi';
+import heroImg from '../assets/images/hero-img.jpg';
 
 const Hero = () => {
   return (
@@ -22,8 +23,12 @@ const Hero = () => {
           </a>
         </div>
 
-        <div className="w-full h-64 md:h-105 rounded-2xl border-2 border-dashed border-dark/30 flex items-center justify-center">
-          <span className="text-dark/50 font-medium">Image</span>
+        <div className="w-full h-64 sm:h-80 md:h-105 rounded-2xl overflow-hidden shadow-sm">
+          <img
+            src={heroImg}
+            alt="Frontend developer working on laptop illustration"
+            className="w-full h-full object-cover object-center"
+          />
         </div>
       </div>
     </section>
