@@ -4,13 +4,6 @@ import { navItems } from '../services/navData';
 const Footer = () => {
   return (
     <section className="relative px-6 max-w-7xl mx-auto pb-10 pt-16">
-      <a
-        href="mailto:your.email@example.com"
-        className="absolute -top-2 right-6 md:right-10 z-10 bg-dark text-cream text-sm font-semibold px-6 py-3 rounded-full hover:bg-lime hover:text-dark transition-colors"
-      >
-        Contact us
-      </a>
-
       <footer className="relative bg-dark rounded-3xl overflow-hidden px-8 md:px-14 pt-20 pb-8">
         <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle,rgba(255,255,255,0.4)_1px,transparent_1px)] bg-size-[18px_18px]" />
 
